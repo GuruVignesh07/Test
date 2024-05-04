@@ -28,7 +28,7 @@ async def test_case(dut):
     dut.EN_start.value = 0
     for idx, v in enumerate(values):
         dut.EN_next.value = 1
-        dut.next_k.value = v
+        dut.next_k.value = 2
         await RisingEdge(dut.CLK)
         results.append(dut.next.value.integer)
     cocotb.log.info(f"Output is {hex(sum(results))}")
